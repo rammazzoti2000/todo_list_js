@@ -9,3 +9,29 @@
 body {
   height: 100%;
 }
+
+.project-container {
+  .card {
+    padding: 1.25em;
+    .card-body {
+      padding: 0;
+      margin: 0;
+      width: min-content;
+    }
+  }
+}
+
+.project-container {
+  .card  {
+    color: #666;
+    &:hover {
+      background-color: #666;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  .card:active {
+    background-color: white;
+    color: #666;
+  }
+}

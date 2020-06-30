@@ -2,10 +2,17 @@ import Project from './project'
 
 class addProject {
 
-  static projects = [
+  static projects = [    //addPro
     {
       title: 'pirozhok',
-      elements: []    //addProjects.projects[0].elements
+      elements: [
+        {
+          title: 'Sample todo',
+          description: 'Sample Desciption',
+          priority: 'high',
+          date: '2011-08-19',
+        }
+      ]    //addProjects.projects[0].elements
     }
   ]
 
@@ -37,7 +44,7 @@ class addProject {
     projects.forEach((project, index) => {
       div.id = `${index}`;
       div.innerHTML = `
-        <p class="card-body">${project.title}</p>
+        <p class="card-body" id="${index}">${project.title}</p>
       `;
       form.append(div);
     })

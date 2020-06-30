@@ -6,14 +6,15 @@ class addToDos {
   static attribute() {
     var attr = 0;
     const cardBody = document.querySelector('.project-container');
-    const children = cardBody.children;
+    const children = cardBody.childNodes;
+
     let that = this;
 
     cardBody.addEventListener('click', (event) => {
       [...children].forEach(child => {
-        child.classList.remove('border-success');
+        child.classList.remove('border-primary');
       });
-      event.target.classList.add('border-success');
+      event.target.classList.add('border-primary');
       var id = event.target.getAttribute('id');
       that.attr = id;
       addToDos.render(id);
@@ -46,10 +47,10 @@ class addToDos {
       event.preventDefault();
       addToDos.render(result);
     })
+    addToDos.deleteTodo();
   }
 
   static render(result) {
-    // const result = addToDos.attribute();
     const projects = addProjects.projects[result].elements;
     const form = document.querySelector('.to-do-list');
     console.log('projects = ' + projects);
@@ -60,18 +61,41 @@ class addToDos {
       div.className = 'card mt-2';
       div.id = `${index}`;
       div.innerHTML = `
-        <p class="card-body">
-          <span>${project.title}</span>
-          <span>${project.description}</span>
-          <span>${project.priority}</span>
-          <span>${project.date}</span>
-        </p>
+        <div class="card-body">
+          <div class="todoProp">
+            <span>${project.title}</span>
+            <span>${project.description}</span>
+            <span>${project.priority}</span>
+            <span>${project.date}</span>
+          </div>
+          <div class="todoAction">
+            <span class="edit" id="${index}"><i class="fas fa-pencil-alt"></i></span>
+            <span class="delete" id="${index}"><i class="fas fa-trash-alt"></i></span>
+          </div>
+        </div>
       `;
       form.append(div);
     });
     console.log(form);
+
+    // deleteItem.addEventListener('click', deleteTodo(result));
     return form;
   };
+
+  static deleteTodo(result) {
+    // const projects = addProjects.projects[result].elements;
+    const todoAction = document.querySelector('.todoAction');
+    // const todoNode = todoAction[1];
+    // let item = this.getAttribute('id');
+    // projects.splice(item, 1);
+    console.log(todoAction);
+    // console.log(todoNode);
+    todoAction.addEventListener('click', function(event) {
+      console.log(event.target);
+      console.log('it works, hui, pitchka');
+    });
+
+  }
 
 }
 
