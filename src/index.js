@@ -10,7 +10,8 @@ import addToDos from './addToDos';
 
 addProject.render();
 addProject.add();
-addToDos.getAttribute();
+// addToDos.attribute();
+// document.addEventListener('change', addToDos.attribute());
 addToDos.add();
 
 

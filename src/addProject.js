@@ -28,7 +28,7 @@ class addProject {
   };
 
   static render() {
-    const form = document.querySelector('.border-right');
+    const form = document.querySelector('.project-container');
     const div = document.createElement('div');
     div.className = 'card mt-2';
 
