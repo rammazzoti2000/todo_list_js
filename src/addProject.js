@@ -18,7 +18,6 @@ class addProject {
 
   static add() {
     const project = document.getElementById('project-form');
-
     project.addEventListener('submit', (event) => {
       event.preventDefault();
       const title = document.querySelector('.project-input').value;

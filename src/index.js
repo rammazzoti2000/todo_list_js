@@ -8,11 +8,9 @@ import '@fortawesome/fontawesome-free/js/brands'
 import addProject from './addProject';
 import addToDos from './addToDos';
 
+addToDos.render(0);
 addProject.render();
 addProject.add();
 // addToDos.attribute();
 // document.addEventListener('change', addToDos.attribute());
 addToDos.add();
-
-
-

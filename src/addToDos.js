@@ -1,10 +1,18 @@
 import addProjects from './addProject'
 import ToDo from './todo'
+import Image1 from './edit.png';
+import Image2 from './delete.png';
 
 class addToDos {
+  // const editImg = new Image();
+  // editImg.src = Image1;
+  //
+  // const deleteImg = new Image();
+  // delete.src = Image2;
 
   static attribute() {
-    var attr = 0;
+    let attr = 0;
+    // this.attr = 0;
     const cardBody = document.querySelector('.project-container');
     const children = cardBody.childNodes;
 
@@ -21,13 +29,16 @@ class addToDos {
       return attr;
     }, false)
 
-    console.log('attr outside = ' + this.attr);
+    console.log('attr outside = ' + attr);
+    // const a = .attr;
+    console.log(this.attr);
     return this.attr;
   }
 
   static add() {
     let that = this;
     var attr = addToDos.attribute();
+    console.log(attr);
     const form = document.querySelector('.collapse');
     form.addEventListener('submit', function(event) {
       event.preventDefault();
@@ -47,7 +58,7 @@ class addToDos {
       event.preventDefault();
       addToDos.render(result);
     })
-    addToDos.deleteTodo();
+    addToDos.deleteTodo(attr);
   }
 
   static render(result) {
@@ -61,7 +72,7 @@ class addToDos {
       div.className = 'card mt-2';
       div.id = `${index}`;
       div.innerHTML = `
-        <div class="card-body">
+        <div class="card-body">deleteImg
           <div class="todoProp">
             <span>${project.title}</span>
             <span>${project.description}</span>
@@ -69,8 +80,8 @@ class addToDos {
             <span>${project.date}</span>
           </div>
           <div class="todoAction">
-            <span class="edit" id="${index}"><i class="fas fa-pencil-alt"></i></span>
-            <span class="delete" id="${index}"><i class="fas fa-trash-alt"></i></span>
+            <span class="edit" id="${index}"><img src="${Image1}" class="edit" id="${index}"></span>
+            <span class="delete" id="${index}"><img src="${Image2}" class="delete" id="${index}"></span>
           </div>
         </div>
       `;
@@ -83,20 +94,31 @@ class addToDos {
   };
 
   static deleteTodo(result) {
+
     // const projects = addProjects.projects[result].elements;
-    const todoAction = document.querySelector('.todoAction');
+    // const deleteItem = document.querySelector('.delete');
+    const todoAction = document.querySelector('.to-do-list');
+    console.log("resultDelete = " + result);
     // const todoNode = todoAction[1];
     // let item = this.getAttribute('id');
     // projects.splice(item, 1);
-    console.log(todoAction);
+    // console.log(todoAction);
     // console.log(todoNode);
-    todoAction.addEventListener('click', function(event) {
-      console.log(event.target);
-      console.log('it works, hui, pitchka');
+    // todoAction.addEventListener('click', function(event) {
+    //   console.log(event.target);
+    //   console.log('it works, hui, pitchka');
+    // });
+
+    todoAction.addEventListener('click', function(e, result) {
+      console.log(e.target);
+      console.log("result click event = " + result);
+       if (e.target.className === 'delete') {
+         const id = event.target.getAttribute('id');
+         console.log('it works, hui, pitchka = ' + id);
+         addProjects.projects[result].elements.splice(id, 1);
+      }
     });
-
-  }
-
-}
+  };
+};
 
 export default addToDos
