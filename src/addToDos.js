@@ -10,13 +10,18 @@ class addToDos {
   // const deleteImg = new Image();
   // delete.src = Image2;
 
+  static govno = addToDos.attribute();
+
   static attribute() {
     let attr = 0;
+    let that = this;
+    // that.attr = 0;
     // this.attr = 0;
     const cardBody = document.querySelector('.project-container');
     const children = cardBody.childNodes;
 
-    let that = this;
+
+    console.log('that attr = ' + that.attr);
 
     cardBody.addEventListener('click', (event) => {
       [...children].forEach(child => {
@@ -26,22 +31,25 @@ class addToDos {
       var id = event.target.getAttribute('id');
       that.attr = id;
       addToDos.render(id);
-      return attr;
+      addToDos.attribute();
     }, false)
 
     console.log('attr outside = ' + attr);
     // const a = .attr;
     console.log(this.attr);
-    return this.attr;
+    addToDos.deleteTodo(that.attr);
+    return that.attr;
   }
 
   static add() {
     let that = this;
-    var attr = addToDos.attribute();
-    console.log(attr);
+    let attr = addToDos.attribute();
+    console.log('outter attr from = ' + attr);
     const form = document.querySelector('.collapse');
     form.addEventListener('submit', function(event) {
       event.preventDefault();
+
+      // addToDos.add();
 
       const title = document.querySelector('.title').value;
       const text = document.querySelector('.text').value;
@@ -49,7 +57,7 @@ class addToDos {
       const date = document.querySelector('.date').value;
 
       const todo = new ToDo(title, text, priority, date);
-
+      console.log('inner attr from add = ' + that.attr);
       let result = that.attr;
       console.log('result = ' + result);
       // console.log(addProjects.projects);
@@ -109,13 +117,16 @@ class addToDos {
     //   console.log('it works, hui, pitchka');
     // });
 
+    let hui = result;
+
     todoAction.addEventListener('click', function(e, result) {
       console.log(e.target);
-      console.log("result click event = " + result);
+      console.log("result click event = " + hui);
        if (e.target.className === 'delete') {
          const id = event.target.getAttribute('id');
          console.log('it works, hui, pitchka = ' + id);
-         addProjects.projects[result].elements.splice(id, 1);
+         addProjects.projects[hui].elements.splice(id, 1);
+         addToDos.render(hui);
       }
     });
   };
