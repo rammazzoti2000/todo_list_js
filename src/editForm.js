@@ -3,7 +3,7 @@ class EditForm {
     const form = document.createElement("div");
     // form.id = `collapseExample${index}`;
     form.innerHTML = `
-    <form class="w-50 container-fluid collapse to-do-list-form" id="collapseExample${index}">
+    <form class="w-50 container-fluid collapse to-do-list-form" id="collapseItems${index}">
     <div class="form-group">
       <label for="exampleFormControlInput1">Title</label>
       <input type="text" class="form-control title bangau" id="exampleFormControlInput1" placeholder="title">
@@ -28,7 +28,7 @@ class EditForm {
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" data-toggle="collapse" href="#collapseExample">Submit</button>
+    <button type="submit" class="btn btn-primary" data-toggle="collapse" href="#collapseItems${index}">Submit</button>
   </form>
     `;
     return form;

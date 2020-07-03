@@ -76,7 +76,7 @@ class addToDos {
             <span>${project.date}</span>
           </div>
           <div class="todoAction">
-            <span class="edit" id="${index}"><img src="${Image1}" class="edit" data-toggle="collapse" href="#collapseExample${index}" id="${index}"></span>
+            <span class="edit" id="${index}"><img src="${Image1}" class="edit" data-toggle="collapse" href="#collapseItems${index}" id="${index}"></span>
             <span class="delete" id="${index}"><img src="${Image2}" class="delete" id="${index}"></span>
           </div>
         </div>
