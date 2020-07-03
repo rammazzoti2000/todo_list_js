@@ -7,4 +7,4 @@ class ToDo {
   }
 }
 
-export default ToDo
+export default ToDo;

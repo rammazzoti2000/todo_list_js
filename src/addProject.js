@@ -2,6 +2,10 @@ import Project from './project'
 
 class addProject {
 
+  static projectArr = localStorage.getItem("items")
+  ? JSON.parse(localStorage.getItem("items"))
+  : [];
+
   static projects = [    //addPro
     {
       title: 'pirozhok',
@@ -25,8 +29,12 @@ class addProject {
         alert('Title cannot be empty.');
         throw new Error('Title cannot be empty.');
       } else {
-        const projectElemet = new Project(title);
-        this.projects.push(projectElemet);
+        const projectElement = new Project(title);
+        this.projects.push(projectElement);
+        this.projectArr.push(this.projects);
+        localStorage.setItem("items", JSON.stringify(this.projectArr));
+        console.log(this.projectArr);
+
         this.clearFields();
         return this.render();
       }
@@ -39,6 +47,7 @@ class addProject {
     div.className = 'card mt-2';
 
     const projects = this.projects;
+
 
     projects.forEach((project, index) => {
       div.id = `${index}`;
