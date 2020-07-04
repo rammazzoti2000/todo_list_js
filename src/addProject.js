@@ -49,6 +49,7 @@ class addProject {
     localStorage.setItem("projects", JSON.stringify(this.projects));
     const projects = JSON.parse(localStorage.getItem("projects"));
 
+
     projects.forEach((project, index) => {
       const div = document.createElement("div");
       div.className = "card mt-2";
