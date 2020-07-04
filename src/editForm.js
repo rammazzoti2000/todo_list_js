@@ -1,7 +1,6 @@
 class EditForm {
   static render(index) {
     const form = document.createElement("div");
-    // form.id = `collapseExample${index}`;
     form.innerHTML = `
     <form class="w-50 container-fluid collapse to-do-list-form" id="collapseItems${index}">
     <div class="form-group">

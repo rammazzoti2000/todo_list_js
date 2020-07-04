@@ -12,8 +12,6 @@ class addToDos {
     const cardBody = document.querySelector(".project-container");
     const children = cardBody.childNodes;
 
-    console.log("that attr = " + that.attr);
-
     cardBody.addEventListener(
       "click",
       (event) => {
@@ -45,10 +43,9 @@ class addToDos {
 
       const todo = new ToDo(title, text, priority, date);
       let result = that.attr;
-      console.log("result = " + result);
 
       addProjects.projects[result].elements.push(todo);
-      event.preventDefault();
+      localStorage.setItem("projects", JSON.stringify(addProjects.projects));
       addToDos.render(result);
       addToDos.clearFields();
     });
@@ -85,7 +82,6 @@ class addToDos {
       outerDiv.append(div);
       outerDiv.append(EditForm.render(index));
     });
-    console.log(form);
 
     return form;
   }
@@ -97,6 +93,7 @@ class addToDos {
       if (e.target.className === "delete") {
         const id = event.target.getAttribute("id");
         addProjects.projects[that.attr].elements.splice(id, 1);
+        localStorage.setItem("projects", JSON.stringify(addProjects.projects));
         addToDos.render(that.attr);
       }
     });
@@ -121,23 +118,18 @@ class addToDos {
         const toDoForm = document.querySelector(".to-do-list");
         const todoAction = toDoForm.querySelectorAll(".to-do-list-form");
         const id = e.target.getAttribute('id');
-        console.log("todoaction = " + todoAction);
 
         todoAction.forEach((elem) => {
-          console.log(elem);
           elem.addEventListener("submit", function (e) {
             e.preventDefault();
-            console.log(elem);
-            console.log(id);
 
             const editItem = addProjects.projects[that.attr].elements[id];
-            console.log(editItem);
 
             editItem.title = elem.querySelector('.title').value;
             editItem.description = elem.querySelector('.text').value;
             editItem.date = elem.querySelector('.date').value;
             editItem.priority = elem.querySelector('.priority').value;
-            console.log('aditItem = '+ editItem.title);
+            localStorage.setItem("projects", JSON.stringify(addProjects.projects));
 
             addToDos.render(that.attr);
           });
