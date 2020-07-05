@@ -17,12 +17,6 @@ class addProject {
       },
     ];
 
-  static localStoragify() {
-    localStorage.setItem('projects', JSON.stringify(this.projects));
-    const projects = JSON.parse(localStorage.getItem('projects'));
-    return projects;
-  }
-
   static add() {
     const project = document.getElementById('project-form');
     project.addEventListener('submit', (event) => {
