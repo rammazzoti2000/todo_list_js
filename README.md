@@ -57,7 +57,7 @@
 The Todo list app creates todos in separate lists. The app loads with a default project to which all of the todos are initially put. The user is able to create new projects and choose which project their todos go into.
 
 This project should prove the understanding of the student on the following JavaScript concepts:
-  * Objects
+  * Object Oriented Programming (OOP)
   * Factory Functions
   * The Module Pattern
   * Single Responsibility and Tightly Coupled Objects
