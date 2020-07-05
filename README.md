@@ -55,6 +55,7 @@
 ## About The Project
 
 The Todo list app creates todos in separate lists. The app loads with a default project to which all of the todos are initially put. The user is able to create new projects and choose which project their todos go into.
+
 This project should prove the understanding of the student on the following JavaScript concepts:
   * Objects
   * Factory Functions
@@ -131,14 +132,14 @@ Give a :star: if you like this project!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/rammazzoti2000//todo_list_js.svg?style=flat-square
-[contributors-url]: https://github.com/rammazzoti2000//todo_list_js/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/rammazzoti2000//todo_list_js.svg?style=flat-square
-[forks-url]: https://github.com/rammazzoti2000//todo_list_js/network/members
-[stars-shield]: https://img.shields.io/github/stars/rammazzoti2000//todo_list_js.svg?style=flat-square
-[stars-url]: https://github.com/rammazzoti2000//todo_list_js/stargazers
-[issues-shield]: https://img.shields.io/github/issues/rammazzoti2000//todo_list_js.svg?style=flat-square
-[issues-url]: https://github.com/rammazzoti2000//todo_list_js/issues
+[contributors-shield]: https://img.shields.io/github/contributors/rammazzoti2000/todo_list_js.svg?style=flat-square
+[contributors-url]: https://github.com/rammazzoti2000/todo_list_js/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/rammazzoti2000/todo_list_js.svg?style=flat-square
+[forks-url]: https://github.com/rammazzoti2000/todo_list_js/network/members
+[stars-shield]: https://img.shields.io/github/stars/rammazzoti2000/todo_list_js.svg?style=flat-square
+[stars-url]: https://github.com/rammazzoti2000/todo_list_js/stargazers
+[issues-shield]: https://img.shields.io/github/issues/rammazzoti2000/todo_list_js.svg?style=flat-square
+[issues-url]: https://github.com/rammazzoti2000/todo_list_js/issues
 
 ## 📝 License
 
