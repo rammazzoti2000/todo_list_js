@@ -1,53 +1,56 @@
-import addProjects from "./addProject";
-import ToDo from "./todo";
-import Image1 from "./edit.png";
-import Image2 from "./delete.png";
-import EditForm from "./editForm";
+import addProjects from './addProject';
+import ToDo from './todo';
+import Image1 from './edit.png';
+import Image2 from './delete.png';
+import EditForm from './editForm';
 
 class addToDos {
   static attr = 0;
 
   static attribute() {
-    let that = this;
-    const cardBody = document.querySelector(".project-container");
+    const that = this;
+    const cardBody = document.querySelector('.project-container');
     const children = cardBody.childNodes;
 
-    cardBody.addEventListener(
-      "click",
-      (event) => {
-        [...children].forEach((child) => {
-          child.classList.remove("border-primary");
-        });
-        event.target.classList.add("border-primary");
-        var id = event.target.getAttribute("id");
-        that.attr = id;
-        addToDos.render(id);
-      },
-      false
-    );
+    cardBody.addEventListener('click', (event) => {
+      [...children].forEach((child) => {
+        child.classList.remove('bg-primary');
+      });
+
+      event.target.classList.add('bg-primary');
+
+      const id = event.target.getAttribute('id');
+      that.attr = id;
+      addToDos.render(id);
+    },
+    false);
 
     return that.attr;
   }
 
   static add() {
-    let that = this;
-    let attr = addToDos.attribute();
-    const form = document.querySelector(".collapse");
-    form.addEventListener("submit", function (event) {
+    const that = this;
+    const attr = addToDos.attribute();
+    const form = document.querySelector('.collapse');
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      const title = document.querySelector(".title").value;
-      const text = document.querySelector(".text").value;
-      const priority = document.querySelector(".priority").value;
-      const date = document.querySelector(".date").value;
+      const title = document.querySelector('.title').value;
+      const text = document.querySelector('.text').value;
+      const priority = document.querySelector('.priority').value;
+      const date = document.querySelector('.date').value;
 
-      const todo = new ToDo(title, text, priority, date);
-      let result = that.attr;
-
-      addProjects.projects[result].elements.push(todo);
-      localStorage.setItem("projects", JSON.stringify(addProjects.projects));
-      addToDos.render(result);
-      addToDos.clearFields();
+      if (title === '' && text === '' && date === '') {
+        alert('Title and Description cannot be empty.'); // eslint-disable-line no-alert
+        throw new Error('Title and Description cannot be empty.');
+      } else {
+        const todo = new ToDo(title, text, priority, date);
+        const result = that.attr;
+        addProjects.projects[result].elements.push(todo);
+        localStorage.setItem('projects', JSON.stringify(addProjects.projects));
+        addToDos.render(result);
+        addToDos.clearFields();
+      }
     });
     addToDos.deleteTodo();
     addToDos.editToDo(attr);
@@ -55,26 +58,30 @@ class addToDos {
 
   static render(result) {
     const projects = addProjects.projects[result].elements;
-    const form = document.querySelector(".to-do-list");
-    form.innerHTML = "";
+    const form = document.querySelector('.to-do-list');
+    form.innerHTML = '';
 
     projects.forEach((project, index) => {
-      const outerDiv = document.createElement("div");
-      outerDiv.className = "outer-div";
-      const div = document.createElement("div");
-      div.className = "card mt-2";
+      const outerDiv = document.createElement('div');
+      outerDiv.className = 'outer-div';
+      const div = document.createElement('div');
+      div.className = 'card';
       div.id = `${index}`;
       div.innerHTML = `
         <div class="card-body">
           <div class="todoProp">
-            <span>${project.title}</span>
-            <span>${project.description}</span>
-            <span>${project.priority}</span>
-            <span>${project.date}</span>
+            <h3 class="title">${project.title}</h3>
+            <div>
+              <span class="priority">${project.priority}</span>
+              <span class="date">${project.date}</span>
+            </div>
           </div>
           <div class="todoAction">
-            <span class="edit" id="${index}"><img src="${Image1}" class="edit" data-toggle="collapse" href="#collapseItems${index}" id="${index}"></span>
-            <span class="delete" id="${index}"><img src="${Image2}" class="delete" id="${index}"></span>
+            <p class="description">${project.description}</p>
+            <div>
+              <span class="edit" id="${index}"><img src="${Image1}" class="edit" data-toggle="collapse" href="#collapseItems${index}" id="${index}"></span>
+              <span class="delete" id="${index}"><img src="${Image2}" class="delete" id="${index}"></span>
+            </div>
           </div>
         </div>
       `;
@@ -87,40 +94,38 @@ class addToDos {
   }
 
   static deleteTodo = () => {
-    const todoAction = document.querySelector(".to-do-list");
-    let that = this;
-    todoAction.addEventListener("click", function (e) {
-      if (e.target.className === "delete") {
-        const id = event.target.getAttribute("id");
+    const todoAction = document.querySelector('.to-do-list');
+    const that = this;
+    todoAction.addEventListener('click', (e) => {
+      if (e.target.className === 'delete') {
+        const id = event.target.getAttribute('id'); // eslint-disable-line
         addProjects.projects[that.attr].elements.splice(id, 1);
-        localStorage.setItem("projects", JSON.stringify(addProjects.projects));
+        localStorage.setItem('projects', JSON.stringify(addProjects.projects));
         addToDos.render(that.attr);
       }
     });
   };
 
   static clearFields() {
-    const toDoForm = document.querySelector(".to-do-list-form");
-    const inputField = toDoForm.querySelectorAll(".bangau");
+    const toDoForm = document.querySelector('.to-do-list-form');
+    const inputField = toDoForm.querySelectorAll('.bangau');
     inputField.forEach((elem) => {
-      elem.value = "";
+      elem.value = '';
     });
   }
 
   static editToDo() {
+    const that = this;
+    const todoList = document.querySelector('.to-do-list');
 
-    let that = this;
-
-    const todoList = document.querySelector(".to-do-list");
-    const edit = document.querySelector(".edit");
-    todoList.addEventListener("click", function (e) {
-      if (e.target.className === "edit") {
-        const toDoForm = document.querySelector(".to-do-list");
-        const todoAction = toDoForm.querySelectorAll(".to-do-list-form");
+    todoList.addEventListener('click', (e) => {
+      if (e.target.className === 'edit') {
+        const toDoForm = document.querySelector('.to-do-list');
+        const todoAction = toDoForm.querySelectorAll('.to-do-list-form');
         const id = e.target.getAttribute('id');
 
         todoAction.forEach((elem) => {
-          elem.addEventListener("submit", function (e) {
+          elem.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const editItem = addProjects.projects[that.attr].elements[id];
@@ -129,8 +134,8 @@ class addToDos {
             editItem.description = elem.querySelector('.text').value;
             editItem.date = elem.querySelector('.date').value;
             editItem.priority = elem.querySelector('.priority').value;
-            localStorage.setItem("projects", JSON.stringify(addProjects.projects));
 
+            localStorage.setItem('projects', JSON.stringify(addProjects.projects));
             addToDos.render(that.attr);
           });
         });

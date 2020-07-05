@@ -8,12 +8,12 @@
 </head>
 
 <body>
-  <div class="container-fluid d-flex row mt-3">
+  <div class="container-fluid d-flex row mt-3 main-container">
     <div class="container-fluid col-3 border-right">
       <form class="d-flex flex-direction-row align-items-end" id="project-form">
         <div class="form-group m-0">
-          <label for="exampleFormControlInput1">Project Title</label>
-          <input type="text" class="form-control project-input" id="exampleFormControlInput1" placeholder="title">
+          <label for="exampleFormControlInput1">New Project</label>
+          <input type="text" class="form-control project-input" id="exampleFormControlInput1" placeholder="Project Name">
         </div>
         <div class="pl-2">
           <button type="submit" class="btn btn-primary"><i class="fas fa-plus-square"></i></button>
@@ -21,23 +21,24 @@
       </form>
       <div class="project-container"></div>
     </div>
-    <div class="col-9">
+    <div class="col-9 todo-container">
       <header class="container-fluid">
-        <div class="d-flex justify-content-center">
+        <h1>To Do List</h1>
+        <div class="d-flex justify-content-start">
           <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
             aria-controls="collapseExample">
-            Link with href
+            New ToDo
           </a>
         </div>
       </header>
-      <form class="w-50 container-fluid collapse to-do-list-form" id="collapseExample">
+      <form class="container-fluid collapse to-do-list-form new-todo" id="collapseExample">
         <div class="form-group">
           <label for="exampleFormControlInput1">Title</label>
-          <input type="text" class="form-control title bangau" id="exampleFormControlInput1" placeholder="title">
+          <input type="text" class="form-control title bangau" id="exampleFormControlInput1" placeholder="Title">
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Description</label>
-          <textarea class="form-control text bangau" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control text bangau" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
         </div>
         <div class="container-fluid w-100 px-0">
           <div class="row d-flex align-items-baseline w-100 justify-content-between mx-0 pr-3">

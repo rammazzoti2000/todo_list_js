@@ -10,28 +10,125 @@ body {
   height: 100%;
 }
 
-.project-container {
-  .card {
-    padding: 1.25em;
-    .card-body {
-      padding: 0;
-      margin: 0;
-      width: min-content;
+.main-container {
+  margin: 0 !important;
+  padding: 0;
+  height: 100vh;
+
+  .new-todo {
+    width: 67%;
+    border-radius: 5px;
+    border: 3px solid #007bff;
+    color: white;
+    padding: 14px 23px 24px;
+    margin-bottom: 22px;
+  }
+
+  .border-right {
+    padding: 0 10px 0;
+    background-color: #1d1d1d;
+    border: none !important;
+
+    form {
+      margin: 22px 0 37px;
+
+      label {
+        color: white;
+        font-size: 1.4rem;
+      }
+    }
+
+    .card {
+      color: white;
+      background: inherit;
+      padding: 1.25em;
+      text-transform: capitalize;
+
+      .card-body {
+        padding: 0;
+        margin: 0;
+        width: min-content;
+        font-size: 1.3rem;
+      }
+
+      &:hover {
+        background-color: #666;
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 }
 
-.project-container {
-  .card  {
-    color: #666;
-    &:hover {
-      background-color: #666;
+.todo-container {
+  background-color: #252525;
+
+  header {
+    margin: 22px 0 37px;
+
+    h1 {
       color: white;
-      cursor: pointer;
+      float: left;
+      padding-right: 17px;
+      border-right: 2px solid white;
+    }
+
+    a {
+      margin: 6px 16px;
     }
   }
-  .card:active {
-    background-color: white;
-    color: #666;
+
+  .to-do-list {
+    width: 67%;
+    margin: 0 auto;
+
+    .outer-div {
+      margin-bottom: 23px;
+      border-radius: 5px;
+      border: 3px solid #007bff;
+
+      .card-body {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .priority {
+          padding: 10px 17px;
+          border: 1px solid;
+          border-radius: 21px;
+          font-weight: 700;
+          user-select: none;
+        }
+
+        .todoProp {
+          display: inline-flex;
+          justify-content: space-between;
+          width: 100%;
+          align-items: center;
+          text-transform: capitalize;
+          margin-bottom: 12px;
+        }
+
+        .todoAction {
+          width: 100%;
+          display: inline-flex;
+          justify-content: space-between;
+          align-items: baseline;
+
+          .edit,
+          .delete {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .to-do-list-form {
+        width: 95% !important;
+        margin-bottom: 24px;
+        padding-top: 10px;
+        color: white;
+      }
+    }
   }
 }
