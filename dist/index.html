@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>To Do List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="container-fluid d-flex row mt-3 main-container">
+    <div class="container-fluid col-3 border-right">
+      <form class="d-flex flex-direction-row align-items-end" id="project-form">
+        <div class="form-group m-0">
+          <label for="exampleFormControlInput1">New Project</label>
+          <input type="text" class="form-control project-input" id="exampleFormControlInput1" placeholder="Project Name">
+        </div>
+        <div class="pl-2">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-plus-square"></i></button>
+        </div>
+      </form>
+      <div class="project-container"></div>
+    </div>
+    <div class="col-9 todo-container">
+      <header class="container-fluid">
+        <h1>To Do List</h1>
+        <div class="d-flex justify-content-start">
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            New ToDo
+          </a>
+        </div>
+      </header>
+      <form class="container-fluid collapse to-do-list-form new-todo" id="collapseExample">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Title</label>
+          <input type="text" class="form-control title bangau" id="exampleFormControlInput1" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control text bangau" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+        </div>
+        <div class="container-fluid w-100 px-0">
+          <div class="row d-flex align-items-baseline w-100 justify-content-between mx-0 pr-3">
+            <div class="form-group col-6 px-0">
+              <label for="exampleFormControlSelect1">Priority</label>
+              <select class="form-control priority" id="exampleFormControlSelect1">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </div>
+            <div class="form-group row col-6 pr-0">
+              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <input class="form-control date bangau" type="date" value="2011-08-19" id="example-date-input">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" data-toggle="collapse" href="#collapseExample">Submit</button>
+      </form>
+      <div class="to-do-list"></div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
